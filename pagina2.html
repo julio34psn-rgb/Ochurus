@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Los Ochurus ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    color: white;
+    background: black;
+    cursor: pointer;
+}
+
+/* Fondo */
+.fondo {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+}
+
+/* 💖 CORAZONES FLOTANTES */
+.corazones {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.corazon {
+    position: absolute;
+    bottom: -50px;
+    color: rgba(255, 105, 180, 0.7);
+    font-size: 22px;
+    animation: subirCorazon linear infinite;
+}
+
+@keyframes subirCorazon {
+    0% { transform: translateY(0) scale(0.8); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+}
+
+/* 📸 POLAROID */
+.fondo img {
+    position: absolute;
+    width: 14%;
+    max-width: 170px;
+    opacity: 0;
+    background: white;
+    padding: 10px 10px 32px 10px;
+    border-radius: 6px;
+    box-shadow: 0 18px 35px rgba(0,0,0,0.55);
+    filter: brightness(1.15) contrast(1.05);
+    animation: aparecer 64s infinite;
+}
+
+.fondo img:nth-child(odd) { transform: rotate(-4deg); }
+.fondo img:nth-child(even) { transform: rotate(4deg); }
+
+/* Izquierda */
+.fondo img:nth-child(1) { top:10%; left:4%; animation-delay:0s; }
+.fondo img:nth-child(2) { top:40%; left:5%; animation-delay:16s; }
+.fondo img:nth-child(3) { top:70%; left:4%; animation-delay:32s; }
+.fondo img:nth-child(4) { top:25%; left:6%; animation-delay:48s; }
+
+/* Derecha */
+.fondo img:nth-child(5) { top:12%; right:4%; animation-delay:8s; }
+.fondo img:nth-child(6) { top:45%; right:5%; animation-delay:24s; }
+.fondo img:nth-child(7) { top:72%; right:4%; animation-delay:40s; }
+.fondo img:nth-child(8) { top:30%; right:6%; animation-delay:56s; }
+
+@keyframes aparecer {
+    0% { opacity: 0; transform: scale(0.85); }
+    10% { opacity: 0.75; }
+    35% { opacity: 0.75; transform: scale(1); }
+    45% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: -1;
+}
+
+/* Contenido */
+.contenido {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+}
+
+.carta {
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(12px);
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 720px;
+    animation: subir 2s ease;
+}
+
+@keyframes subir {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 { font-size: 2.4em; margin-bottom: 20px; }
+p { font-size: 1.1em; line-height: 1.8; }
+
+/* ✨ FRASES FLOTANTES */
+.frase-flotante {
+    font-size: 1.35em;
+    color: rgba(255,255,255,0.85);
+    opacity: 0;
+    animation: flotar 30s infinite;
+    pointer-events: none;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+@keyframes flotar {
+    0% { opacity: 0; transform: translateY(20px); }
+    20% { opacity: 1; }
+    80% { opacity: 1; transform: translateY(-30px); }
+    100% { opacity: 0; }
+}
+
+/* 🛑 ZONAS SEGURAS PARA FRASES */
+.zona-frases {
+    position: fixed;
+    left: 28%;
+    width: 44%;
+    text-align: center;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.zona-arriba { top: 6%; }
+.zona-abajo { bottom: 4%; }
+
+.zona-frases .frase-flotante {
+    display: inline-block;
+    margin: 0 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 💖 CORAZONES -->
+<div class="corazones">
+    <div class="corazon" style="left:10%; animation-duration:18s;">❤️</div>
+    <div class="corazon" style="left:25%; animation-duration:22s;">💖</div>
+    <div class="corazon" style="left:40%; animation-duration:20s;">❤️</div>
+    <div class="corazon" style="left:55%; animation-duration:24s;">💗</div>
+    <div class="corazon" style="left:70%; animation-duration:19s;">❤️</div>
+    <div class="corazon" style="left:85%; animation-duration:26s;">💘</div>
+</div>
+
+<!-- 📸 IMÁGENES -->
+<div class="fondo">
+    <img src="img9.jpg">
+    <img src="img10.jpg">
+    <img src="img11.jpg">
+    <img src="img12.jpg">
+    <img src="img13.jpg">
+    <img src="img14.jpg">
+    <img src="img15.jpg">
+    <img src="img16.jpg">
+</div>
+
+<div class="overlay"></div>
+
+<!-- 💬 FRASES ARRIBA -->
+<div class="zona-frases zona-arriba">
+    <span class="frase-flotante">Te amo ❤️</span>
+    <span class="frase-flotante" style="animation-delay:2s;">Eres mi todo 💖</span>
+    <span class="frase-flotante" style="animation-delay:4s;">Mi persona favorita ✨</span>
+    <span class="frase-flotante" style="animation-delay:6s;">Contigo todo es mejor 💫</span>
+</div>
+
+<!-- 💬 FRASES ABAJO -->
+<div class="zona-frases zona-abajo">
+    <span class="frase-flotante" style="animation-delay:8s;">Mi lugar seguro 💕</span>
+    <span class="frase-flotante" style="animation-delay:10s;">Para siempre tú ❤️</span>
+    <span class="frase-flotante" style="animation-delay:12s;">Te elegiría MIL VECES 💘</span>
+    <span class="frase-flotante" style="animation-delay:14s;">Mi ochurus bella 🌙</span>
+</div>
+
+<!-- 🎵 AUDIO -->
+<audio id="musica" loop>
+    <source src="Musica.mp3" type="audio/mpeg">
+</audio>
+
+<div class="contenido">
+    <div class="carta">
+        <h1>💖 Mi persona favorita</h1>
+        <p>
+            Mi amor por ti no nació de la costumbre, 
+            nació del corazón, nació de cada momento 
+            que compartimos sin darnos cuenta del tiempo. 
+            Nació cuando, poco a poco, entraste en mi vida 
+            y sin notarlo te fuiste quedando en mi corazón. 
+            Nació con tus ocurrencias que siempre logran 
+            sacarme una sonrisa, con tus cariños que me hacen 
+            sentir querido, con tu increíble forma de ser conmigo, 
+            y con esa manera tan única y hermosa que tienes de amar. 
+            Nació en los detalles pequeños, en las conversaciones sinceras que compartimos juntos, 
+            en los silencios compartidos y en la tranquilidad que siento cuando estás cerca. 
+            Porque amarte no fue una decisión, fue algo que simplemente pasó y que hoy sigo 
+            sintiendo con la misma intensidad y con todo el amor que guardo para ti. 
+            <p><strong>TE AMO MÁS QUE A NADA. Mi bella mujer.</strong></p>
+        </p>
+    </div>
+</div>
+
+<script>
+const musica = document.getElementById('musica');
+let volumen = 0;
+let iniciada = false;
+
+function iniciarMusica() {
+    if (iniciada) return;
+    iniciada = true;
+
+    musica.volume = 0;
+    musica.play();
+
+    const fade = setInterval(() => {
+        if (volumen < 0.5) {
+            volumen += 0.02;
+            musica.volume = volumen;
+        } else {
+            clearInterval(fade);
+        }
+    }, 200);
+
+    document.removeEventListener('click', iniciarMusica);
+}
+
+document.addEventListener('click', iniciarMusica);
+</script>
+
+</body>
+</html>
